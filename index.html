@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Persoonlijk Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="greet" id="greeting">—</div>
+      <div class="date" id="dateNow">—</div>
+    </header>
+
+    <div class="grid">
+      <!-- NEWS -->
+      <section class="card" id="newsCard">
+        <h2>
+          <span>Nieuws</span>
+          <span class="pill" id="newsStatus">laden…</span>
+        </h2>
+        <div class="tabs" id="newsTabs"></div>
+        <div class="newslist" id="newsList"></div>
+        <div class="content">
+          <div class="small muted">
+            Als een bron faalt, ligt dat meestal aan de feed-URL of blokkades. Pas server.js aan (NEWS_SOURCES).
+          </div>
+        </div>
+      </section>
+
+      <!-- WEATHER -->
+      <section class="card" id="weatherCard">
+        <h2>
+          <span>Weer</span>
+          <span class="pill" id="weatherLoc">—</span>
+        </h2>
+        <div class="content">
+          <div class="weatherTop">
+            <div>
+              <div class="temp" id="tempNow">—°</div>
+              <div class="muted" id="weatherSummary">laden…</div>
+            </div>
+            <div class="small muted" id="weatherUpdated"></div>
+          </div>
+
+          <div class="weatherStats">
+            <div class="stat">
+              <div class="k">Neerslag</div>
+              <div class="v" id="precipNow">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Wind</div>
+              <div class="v" id="windNow">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Gevoelstemperatuur</div>
+              <div class="v" id="apparentNow">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Bewolking</div>
+              <div class="v" id="cloudNow">—</div>
+            </div>
+          </div>
+
+          <div class="alerts" id="alertsBox">
+            <strong>Weerswaarschuwingen</strong>
+            <ul id="alertsList"></ul>
+          </div>
+
+          <div class="error" id="weatherErr"></div>
+          <div class="sep"></div>
+          <div class="small muted">
+            Weerdata: Open-Meteo. Waarschuwingen: KNMI RSS (best-effort).
+          </div>
+        </div>
+      </section>
+
+      <!-- STOCKS -->
+      <section class="card" id="stocksCard">
+        <h2>
+          <span>Beurs</span>
+          <span class="pill" id="stocksStatus">laden…</span>
+        </h2>
+        <div class="content">
+          <div class="aex">
+            <div>
+              <div class="label">AEX</div>
+              <div class="price" id="aexPrice">—</div>
+            </div>
+            <div class="chg" id="aexChg">—</div>
+          </div>
+
+          <div class="movers">
+            <div class="mcol">
+              <h3>Stijgers</h3>
+              <div id="gainers"></div>
+            </div>
+            <div class="mcol">
+              <h3>Dalers</h3>
+              <div id="losers"></div>
+            </div>
+          </div>
+
+          <div class="error" id="stocksErr"></div>
+          <div class="sep"></div>
+          <div class="small muted">
+            Data: Yahoo Finance quote endpoint (server-side).
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PODCASTS -->
+    <section class="card" id="podCard">
+      <h2>
+        <span>Podcasts</span>
+        <span class="pill" id="podStatus">laden…</span>
+      </h2>
+      <div class="content">
+        <div class="podList" id="podList"></div>
+        <div class="error" id="podErr"></div>
+        <div class="sep"></div>
+        <div class="small muted">
+          Toont de 3 meest recente afleveringen (over alle feeds heen) met ingebouwde audioplayer.
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
